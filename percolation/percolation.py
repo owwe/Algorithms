@@ -112,28 +112,30 @@ class percolation:
     def __init__(self,n):
         self.grid = np.ones((n,n))
         self.n = n
+
     def open(self,r,c):
         if self.isFull(r,c):
             self.grid[r,c] = 0
+
     def isOpen(self,r,c):
         return self.grid[r,c] == 0
+    
     def isFull(self,r,c):
         return self.grid[r,c] == 1
+    
     def numberOfOpenSites(self):
         return self.n * self.n - self.grid.sum()
+    
     def visualize(self):
         plt.imshow(self.grid,cmap = 'binary')
         plt.title(f'{self.n} by {self.n}')
         plt.xlabel(f'open sites: {self.numberOfOpenSites()}')
         plt.ylabel(f'walls: {self.grid.sum()}')
         plt.show()
+
     def get_neighboors(self):
         data = [i for i in range(self.n*self.n)]
               
-
-           
-
-
 
 def compare():
     data = get_input('largeUF.txt')
@@ -147,9 +149,6 @@ def compare():
     end_time = time.time()
     print(end_time - start_time)
 
-    
-
-
 def test():
     n = 5
     p = 0.5
@@ -157,8 +156,7 @@ def test():
     rng = np.random.default_rng(2)
     grid = rng.random((n, n))
     grid = np.where(grid > p, 1, 0)
-    print(grid.sum())
-    print(grid)
+
     print(np.sum(grid))
     grid = Grid(n,p)
     print(grid)
@@ -166,7 +164,11 @@ def test():
 
 
 
+
+
+
 if __name__ == '__main__':
 
     # QuickFind(data).union(6,5)
     # QuickFind(data).union(9,4)
+    test()
