@@ -3,7 +3,7 @@ class Node:
         self.data = data
         self.next = None
     def __str__(self):
-        print(self.data)
+        return str(self.data)
 
 class Linkedlist:
     def __init__(self):
@@ -67,16 +67,28 @@ class Linkedlist:
             ptr = ptr.next
         o += 'None'
         return o
+    
+    def reverse(self):
+        prev = None
+        curr = self.head.next
+        while curr is not None:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        self.head.next = prev
+
 
 
 if __name__ == '__main__':
     linked_list = Linkedlist()
     for i in range(10):
         linked_list.push(Node(i))
-    print(linked_list)
+    #print(linked_list)
     linked_list.insert(1111,2)
     print(linked_list)
-
+ 
+   
 
     
 
