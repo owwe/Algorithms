@@ -31,7 +31,7 @@ class heap:
         self.sink()
 
     def get_max(self):
-        if len(self.tree) > 1:
+        if len(self.tree) > 2:
             return self.tree[1]
     
     def __str__(self):
